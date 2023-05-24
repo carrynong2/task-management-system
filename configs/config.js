@@ -1,4 +1,7 @@
-const ENV = process.env.NODE_ENV || "dev";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+const ENV = process.env.NODE_ENV || "development";
 
 const APPLICATION_NAME = "task-management-service";
 

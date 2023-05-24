@@ -1,6 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import compression from "compression";
+import helmet from "helmet";
 import taskRouter from "./domain/tasks/task.controller.js";
 import { connectMongoDB } from "./configs/db.config.js";
 import { handlingResponseError } from "./util/utility.js";
@@ -12,6 +14,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(cors());
+app.use(compression());
+app.use(helmet());
 
 app.use("/api/v1/tasks", taskRouter);
 
